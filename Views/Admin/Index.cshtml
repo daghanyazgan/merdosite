@@ -1,0 +1,36 @@
+@{
+    ViewData["Title"] = "Admin Paneli";
+}
+
+<div class="container py-5 pt-5">
+    <h1>Admin Paneli</h1>
+    <div class="row mt-4">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Kategoriler</h5>
+                    <p class="card-text">Kategori yönetimi için tıklayın.</p>
+                    <a asp-action="Categories" class="btn btn-primary">Kategorileri Yönet</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Ürünler</h5>
+                    <p class="card-text">Ürün yönetimi için tıklayın.</p>
+                    <a asp-action="Products" class="btn btn-primary">Ürünleri Yönet</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Siparişler</h5>
+                    <p class="card-text">Sipariş yönetimi için tıklayın.</p>
+                    <a asp-action="Orders" class="btn btn-primary">Siparişleri Yönet</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 

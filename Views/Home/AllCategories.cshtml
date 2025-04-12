@@ -1,0 +1,43 @@
+@model IEnumerable<dagstore.Models.Category>
+
+@{
+    ViewData["Title"] = "Tüm Kategoriler";
+}
+
+<div class="container py-5 pt-5">
+    <h1 class="text-center mb-5">Tüm Kategoriler</h1>
+
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+        @if (Model != null && Model.Any())
+        {
+            @foreach (var category in Model)
+            {
+                <div class="col">
+                    <div class="category-card h-100">
+                        <a asp-action="CategoryProducts" asp-route-id="@category.Id" class="text-decoration-none d-block card-img-container">
+                            <img src="@category.ImageUrl" class="card-img-top" alt="@category.Name" style="height: 250px; object-fit: cover;">
+                        </a>
+                        <div class="card-body text-center d-flex flex-column">
+                            <h5 class="card-title mt-2">@category.Name</h5>
+                            @if (!string.IsNullOrWhiteSpace(category.Description))
+                            {
+                                <p class="card-text flex-grow-1">@category.Description</p>
+                            }
+                            else
+                            {
+                                <p class="card-text flex-grow-1 text-muted">&nbsp;</p>
+                            }
+                            <a asp-action="CategoryProducts" asp-route-id="@category.Id" class="btn btn-outline-primary mt-auto align-self-center">Ürünleri Gör</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <div class="col-12">
+                <p class="text-center">Gösterilecek kategori bulunamadı.</p>
+            </div>
+        }
+    </div>
+</div> 

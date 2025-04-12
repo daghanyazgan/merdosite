@@ -1,0 +1,91 @@
+@model dagstore.Models.Order
+
+@{
+    ViewData["Title"] = "Sipariş Detayları";
+}
+
+<div class="container py-4">
+    <h2>Sipariş Detayları</h2>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">Sipariş Bilgileri</h5>
+                </div>
+                <div class="card-body">
+                    <dl class="row">
+                        <dt class="col-sm-4">Sipariş No:</dt>
+                        <dd class="col-sm-8">@Model.Id</dd>
+
+                        <dt class="col-sm-4">Tarih:</dt>
+                        <dd class="col-sm-8">@Model.CreatedAt.ToString("dd.MM.yyyy HH:mm")</dd>
+
+                        <dt class="col-sm-4">Durum:</dt>
+                        <dd class="col-sm-8">
+                            <span class="badge @(Model.Status == "Tamamlandı" ? "bg-success" : 
+                                                Model.Status == "İptal Edildi" ? "bg-danger" : 
+                                                "bg-warning")">
+                                @Model.Status
+                            </span>
+                        </dd>
+
+                        <dt class="col-sm-4">Toplam Tutar:</dt>
+                        <dd class="col-sm-8">@Model.TotalAmount.ToString("C2")</dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">Teslimat Bilgileri</h5>
+                </div>
+                <div class="card-body">
+                    <dl class="row">
+                        <dt class="col-sm-4">Müşteri:</dt>
+                        <dd class="col-sm-8">@(Model.User?.UserName ?? "Bilinmiyor")</dd>
+
+                        <dt class="col-sm-4">Adres:</dt>
+                        <dd class="col-sm-8">@(Model.User?.Address ?? "Belirtilmemiş")</dd>
+
+                        <dt class="col-sm-4">Telefon:</dt>
+                        <dd class="col-sm-8">@(Model.User?.PhoneNumber ?? "Belirtilmemiş")</dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <h5 class="card-title mb-0">Ürünler</h5>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Ürün</th>
+                            <th>Birim Fiyat</th>
+                            <th>Adet</th>
+                            <th>Toplam</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.OrderItems)
+                        {
+                            <tr>
+                                <td>@(item.Product?.Name ?? "Ürün bulunamadı")</td>
+                                <td>@item.UnitPrice.ToString("C2")</td>
+                                <td>@item.Quantity</td>
+                                <td>@((item.UnitPrice * item.Quantity).ToString("C2"))</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div> 

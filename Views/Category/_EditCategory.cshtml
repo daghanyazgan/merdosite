@@ -1,0 +1,67 @@
+@model dagstore.Models.CategoryViewModel
+
+<form id="editCategoryForm">
+    <div class="mb-3">
+        <label for="editName" class="form-label">Kategori Adı</label>
+        <input type="text" class="form-control" id="editName" name="Name" value="@Model.Name" required maxlength="50">
+    </div>
+    <div class="mb-3">
+        <label for="editDescription" class="form-label">Açıklama</label>
+        <textarea class="form-control" id="editDescription" name="Description" rows="3" required maxlength="200">@Model.Description</textarea>
+    </div>
+    <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" id="editIsActive" name="IsActive" @(Model.IsActive ? "checked" : "")>
+        <label class="form-check-label" for="editIsActive">Aktif</label>
+    </div>
+    <div class="d-flex justify-content-between">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">İptal</button>
+        <button type="submit" class="btn btn-primary">Kaydet</button>
+    </div>
+</form>
+
+<script>
+    $("#editCategoryForm").on("submit", function(e) {
+        e.preventDefault();
+        
+        var formData = {
+            Name: $("#editName").val(),
+            Description: $("#editDescription").val(),
+            IsActive: $("#editIsActive").is(":checked")
+        };
+
+        $.ajax({
+            url: '@Url.Action("Edit", new { id = ViewContext.RouteData.Values["id"] })',
+            type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify(formData),
+            headers: {
+                'RequestVerificationToken': $('input[name="__RequestVerificationToken"]').val()
+            },
+            success: function(response) {
+                if (response.success) {
+                    $('#editCategoryModal').modal('hide');
+                    Swal.fire({
+                        title: 'Başarılı!',
+                        text: response.message,
+                        icon: 'success'
+                    }).then(() => {
+                        location.reload();
+                    });
+                } else {
+                    Swal.fire({
+                        title: 'Hata!',
+                        text: response.message,
+                        icon: 'error'
+                    });
+                }
+            },
+            error: function() {
+                Swal.fire({
+                    title: 'Hata!',
+                    text: 'Bir hata oluştu. Lütfen tekrar deneyin.',
+                    icon: 'error'
+                });
+            }
+        });
+    });
+</script> 

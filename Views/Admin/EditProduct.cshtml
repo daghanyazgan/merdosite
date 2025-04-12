@@ -1,0 +1,94 @@
+@model dagstore.Models.Product
+
+@{
+    ViewData["Title"] = "Ürün Düzenle: " + Model.Name;
+}
+
+<div class="container py-5 pt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow">
+                <div class="card-header bg-warning text-dark">
+                    <h4 class="mb-0">Ürün Düzenle: @Model.Name</h4>
+                </div>
+                <div class="card-body">
+                    <form asp-action="EditProduct" method="post" enctype="multipart/form-data">
+                        <input type="hidden" asp-for="Id" />
+                        <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label asp-for="Name" class="form-label"></label>
+                                <input asp-for="Name" class="form-control" />
+                                <span asp-validation-for="Name" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-6">
+                                <label asp-for="CategoryId" class="form-label">Kategori</label>
+                                <select asp-for="CategoryId" class="form-select" asp-items="(SelectList)ViewBag.Categories">
+                                    <option value="">-- Kategori Seçin --</option>
+                                </select>
+                                <span asp-validation-for="CategoryId" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label asp-for="Price" class="form-label"></label>
+                                <input asp-for="Price" class="form-control" type="number" step="0.01" />
+                                <span asp-validation-for="Price" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-6">
+                                <label asp-for="Stock" class="form-label"></label>
+                                <input asp-for="Stock" class="form-control" type="number" />
+                                <span asp-validation-for="Stock" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Description" class="form-label"></label>
+                            <textarea asp-for="Description" class="form-control" rows="4"></textarea>
+                            <span asp-validation-for="Description" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Mevcut Ürün Görseli</label>
+                            <div>
+                                @if (!string.IsNullOrEmpty(Model.ImageUrl))
+                                {
+                                    <img src="@Model.ImageUrl" alt="Mevcut Görsel" style="max-width: 150px; max-height: 150px; object-fit: cover; border-radius: 5px; margin-bottom: 10px; display: block;" />
+                                }
+                                else
+                                {
+                                    <span class="text-muted">Mevcut görsel yok.</span>
+                                }
+                            </div>
+                            <label for="image" class="form-label">Yeni Ürün Görseli</label>
+                            <input name="image" id="image" class="form-control" type="file" accept="image/*" />
+                            <small class="form-text text-muted">Yeni bir görsel seçmezseniz mevcut görsel korunacaktır.</small>
+                            <!-- Gerekirse span asp-validation-for="Image" eklenebilir -->
+                        </div>
+
+                        <div class="mb-3 form-check">
+                            <input asp-for="IsActive" class="form-check-input" />
+                            <label asp-for="IsActive" class="form-check-label"></label>
+                        </div>
+
+                        <div class="mb-3 form-check">
+                            <input asp-for="IsFeatured" class="form-check-input" />
+                            <label asp-for="IsFeatured" class="form-check-label">Öne Çıkan Ürün</label>
+                        </div>
+
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-4">
+                            <a asp-action="Products" class="btn btn-secondary me-md-2">İptal</a>
+                            <button type="submit" class="btn btn-warning">Değişiklikleri Kaydet</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+} 

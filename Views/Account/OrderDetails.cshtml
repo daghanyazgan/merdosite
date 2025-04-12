@@ -1,0 +1,25 @@
+@model dagstore.Models.Order
+
+@{
+    ViewData["Title"] = "Sipariş Detayları";
+}
+
+<div class="container py-5">
+    <div class="row">
+        <div class="col-12">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="@Url.Action("Index", "Home")">Ana Sayfa</a></li>
+                    <li class="breadcrumb-item"><a href="@Url.Action("Orders", "Account")">Siparişlerim</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Sipariş #@Model.Id</li>
+                </ol>
+            </nav>
+
+            <div class="mb-4">
+                <h1 class="h3">Sipariş #@Model.Id</h1>
+            </div>
+
+            <partial name="_OrderDetails" model="@Model" />
+        </div>
+    </div>
+</div> 

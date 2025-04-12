@@ -1,0 +1,641 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - MIB3D</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/dagstore.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
+    <style>
+        :root {
+            --primary-color: #0d6efd;
+            --secondary-color: #6c757d;
+            --accent-color: #ffc107;
+            --dark-bg: #212529;
+            --light-bg: #f8f9fa;
+            --text-dark: #212529;
+            --text-light: #f8f9fa;
+            --text-muted: #6c757d;
+            --border-color: #dee2e6;
+        }
+
+        html {
+            position: relative;
+            min-height: 100%;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            margin: 0;
+            padding-bottom: 500px;
+            font-family: 'Poppins', sans-serif;
+            background-color: #fff;
+            color: var(--text-dark);
+        }
+
+        main {
+            flex: 1 0 auto;
+            padding-top: 0;
+            position: relative;
+            z-index: 1;
+            background-color: var(--light-bg);
+            margin-bottom: 0;
+            min-height: calc(100vh - 500px);
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            padding: 4rem 0 2rem 0;
+            height: auto;
+            min-height: 500px;
+        }
+
+        .footer .row {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin: 0;
+            gap: 20px;
+        }
+
+        .footer h5 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            color: #fff;
+        }
+
+        .footer p {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+            width: 100%;
+            word-wrap: break-word;
+            white-space: normal;
+        }
+
+        .footer ul li {
+            margin-bottom: 1.2rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.1rem;
+            word-wrap: break-word;
+            white-space: normal;
+        }
+
+        .footer ul li a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer ul li a:hover {
+            color: var(--accent-color);
+            padding-left: 5px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1.2rem;
+        }
+
+        .social-icons a {
+            color: white;
+            font-size: 1.3rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .social-icons a:hover {
+            color: #fff;
+            background-color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            z-index: 1030;
+            padding: 1rem 0;
+            background-color: var(--dark-bg) !important;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            color: #fff !important;
+        }
+
+        .nav-link {
+            font-size: 1rem;
+            font-weight: 500;
+            padding: 0.5rem 1rem !important;
+            transition: all 0.3s ease;
+            color: rgba(255, 255, 255, 0.8) !important;
+        }
+
+        .nav-link:hover {
+            color: #fff !important;
+        }
+
+        .nav-link.active {
+            color: #fff !important;
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            padding: 1rem;
+        }
+
+        @@media screen and (max-width: 768px) {
+            main {
+                padding-top: 80px;
+            }
+
+            body {
+                padding-bottom: 600px;
+            }
+            
+            .footer {
+                min-height: 600px;
+                padding: 3rem 0 2rem 0;
+            }
+
+            .footer .col-md-4 {
+                margin-bottom: 3rem;
+                text-align: center;
+            }
+
+            .social-icons {
+                justify-content: center;
+            }
+
+            .footer ul {
+                text-align: center;
+            }
+
+            .navbar-collapse {
+                background-color: var(--dark-bg);
+                padding: 1rem;
+                margin-top: 0.5rem;
+            }
+
+            .footer .col-lg-3 {
+                border-right: none;
+                padding: 0 20px;
+                max-width: 100%;
+            }
+
+            .footer .row {
+                justify-content: center;
+                gap: 40px;
+            }
+        }
+
+        .footer .col-lg-3 {
+            position: relative;
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 0 40px;
+            width: 100%;
+            max-width: 300px;
+            word-wrap: break-word;
+            white-space: normal;
+        }
+
+        .footer .col-lg-3:last-child {
+            border-right: none;
+        }
+
+        /* Owl Carousel Ok Stilleri - Güncellenmiş */
+        .owl-carousel .owl-nav {
+            position: static; /* Nav container'ının akışta kalmasını sağlarız, oklar absolute olacak */
+            margin: 0;
+        }
+
+        .owl-carousel .owl-nav button.owl-prev,
+        .owl-carousel .owl-nav button.owl-next {
+            position: absolute;    /* Konumu absolute yap */
+            top: 50%;            /* Dikey olarak ortala */
+            transform: translateY(-50%);
+            background: rgba(52, 58, 64, 0.7) !important; /* Koyu yarı saydam arka plan */
+            color: white !important;
+            border: none;
+            border-radius: 50%;    /* Tamamen yuvarlak */
+            width: 50px;         /* Genişlik */
+            height: 50px;        /* Yükseklik */
+            font-size: 1.8rem;   /* İkon boyutu */
+            line-height: 46px !important; /* İkonu dikey ortala */
+            text-align: center;
+            padding: 0;          /* İç padding sıfırla */
+            margin: 0; 
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            z-index: 10;         /* Diğer öğelerin üzerinde olmasını sağla */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .owl-carousel .owl-nav button.owl-prev:hover,
+        .owl-carousel .owl-nav button.owl-next:hover {
+            background: rgba(0, 123, 255, 0.9) !important; /* Hover'da mavi */
+            transform: translateY(-50%) scale(1.1); /* Hafif büyütme efekti */
+        }
+
+        .owl-carousel .owl-nav button.owl-prev {
+            left: -25px;        /* Sol ok konumu (carousel dışına taşır) */
+        }
+
+        .owl-carousel .owl-nav button.owl-next {
+            right: -25px;       /* Sağ ok konumu (carousel dışına taşır) */
+        }
+
+        .owl-carousel .owl-nav button.disabled {
+            opacity: 0.3;
+            cursor: default;
+            box-shadow: none;
+            transform: translateY(-50%); /* Disabled durumda scale olmasın */
+        }
+        
+        /* Carousel container'ına relative position eklemek gerekebilir */
+        /* Eğer oklar yanlış konumlanıyorsa, Index.cshtml'deki .owl-carousel'i içeren section/div'e şu stil eklenebilir: */
+        /* .category-section, .product-section { position: relative; } */
+
+        .owl-theme .owl-dots .owl-dot {
+             display: inline-block;
+             zoom: 1;
+        }
+        .owl-theme .owl-dots .owl-dot span {
+            width: 10px;
+            height: 10px;
+            margin: 5px 7px;
+            background: #D6D6D6;
+            display: block;
+            -webkit-backface-visibility: visible;
+            transition: opacity 200ms ease;
+            border-radius: 30px;
+        }
+         .owl-theme .owl-dots .owl-dot.active span,
+         .owl-theme .owl-dots .owl-dot:hover span {
+             background: #007bff;
+         }
+
+        /* Kategori Kart Stilleri - Güncellenmiş */
+        .category-card {
+            border: none; /* Çerçeveyi kaldıralım veya çok hafif yapalım */
+            border-radius: 0.8rem; /* Daha yuvarlak köşeler */
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background-color: #fff;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05); /* Daha yumuşak gölge */
+            position: relative; /* Overlay için */
+        }
+        .category-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1); /* Hover'da daha belirgin gölge */
+        }
+        .category-card .card-img-container {
+            position: relative;
+            overflow: hidden;
+        }
+         .category-card .card-img-container::before { /* Hover için overlay */
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: rgba(0, 0, 0, 0);
+            transition: background-color 0.3s ease;
+            z-index: 1;
+        }
+         .category-card:hover .card-img-container::before {
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+        .category-card img {
+            transition: transform 0.3s ease; /* Zoom efekti için */
+            display: block; /* Resim altındaki boşluğu engelle */
+            width: 100%; /* Genişliği %100 yapalım */
+        }
+        .category-card:hover img {
+            transform: scale(1.05); /* Hover'da hafif zoom */
+        }
+        .category-card .card-body {
+            padding: 1.25rem;
+            position: relative; /* Butonun altında kalmaması için */
+            z-index: 2;
+        }
+        .category-card .card-title {
+             margin-bottom: 0.5rem;
+             font-weight: 600; /* Daha kalın başlık */
+             font-size: 1.1rem;
+             color: var(--text-dark);
+        }
+         .category-card .card-text {
+             font-size: 0.9rem;
+             color: var(--text-muted);
+             margin-bottom: 1.25rem;
+             min-height: calc(0.9rem * 1.5 * 2); /* 2 satır için min yükseklik */
+        }
+        .category-card .btn-outline-primary {
+             border-color: var(--primary-color);
+             color: var(--primary-color);
+        }
+        .category-card .btn-outline-primary:hover {
+             background-color: var(--primary-color);
+             color: white;
+        }
+        
+        /* Product Card Stilleri (Güncellenmiş - Kategori Kartına Benzer) */
+        .product-card {
+            border: none; 
+            border-radius: 0.8rem;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background-color: #fff;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            position: relative;
+        }
+         .product-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+        .product-card .card-img-container { /* Resim hover efekti için eklendi */
+            position: relative;
+            overflow: hidden;
+        }
+         .product-card .card-img-container::before { /* Hover için overlay */
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: rgba(0, 0, 0, 0);
+            transition: background-color 0.3s ease;
+            z-index: 1;
+        }
+         .product-card:hover .card-img-container::before {
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+        .product-card img {
+            transition: transform 0.3s ease;
+            display: block;
+            width: 100%;
+        }
+        .product-card:hover img {
+            transform: scale(1.05);
+        }
+         .product-card .card-body {
+            padding: 1.25rem;
+            position: relative;
+            z-index: 2;
+        }
+         .product-card .card-title {
+             margin-bottom: 0.5rem;
+             font-weight: 600;
+             font-size: 1.1rem;
+             color: var(--text-dark);
+        }
+          .product-card .card-text {
+             font-size: 0.9rem;
+             color: var(--text-muted);
+             margin-bottom: 1rem;
+             min-height: calc(0.9rem * 1.5 * 2); /* Açıklama için min yükseklik (category-card ile aynı) */
+        }
+        .product-card .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.1s ease;
+        }
+        .product-card .btn-primary:hover {
+            background-color: darken(var(--primary-color), 10%);
+            border-color: darken(var(--primary-color), 12%);
+            transform: translateY(-1px);
+        }
+
+        /* Genel Buton Stilleri */
+        .btn-secondary {
+            /* ... */
+        }
+
+        /* Link Stilleri */
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        a:hover {
+            color: darken(var(--primary-color), 15%);
+            text-decoration: underline;
+        }
+
+        /* Section Arka Planları */
+        section.bg-light {
+            background-color: var(--light-bg) !important;
+        }
+
+        /* Kart Stilleri */
+        .category-card, .product-card {
+            background-color: #fff;
+        }
+         .category-card .card-text,
+         .product-card .card-text {
+             color: var(--text-muted);
+         }
+          .category-card .card-title,
+          .product-card .card-title {
+             color: var(--text-dark);
+         }
+         .product-card .text-primary {
+             color: var(--primary-color) !important;
+         }
+
+        /* WhatsApp Floating Button Stilleri */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366; /* WhatsApp Yeşili */
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px; /* İkon boyutu */
+            box-shadow: 2px 2px 6px rgba(0,0,0,0.3);
+            z-index: 100;
+            transition: transform 0.2s ease-in-out;
+            display: flex; /* İkonu ortalamak için */
+            align-items: center; /* İkonu dikey ortala */
+            justify-content: center; /* İkonu yatay ortala */
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            color: #FFF; /* Hover'da renk değişmesin */
+            text-decoration: none; /* Hover'da alt çizgi çıkmasın */
+        }
+
+    </style>
+    @await RenderSectionAsync("Styles", required: false)
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+            <div class="container">
+                <a class="navbar-brand animate__animated animate__fadeIn" asp-controller="Home" asp-action="Index">
+                    <i class="fas fa-store"></i> MIB3D
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link animate__animated animate__fadeIn" asp-controller="Home" asp-action="Index">Ana Sayfa</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link animate__animated animate__fadeIn" href="http://localhost:5016/Home/AllCategories">Kategoriler</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link animate__animated animate__fadeIn" asp-controller="Product" asp-action="Index">Ürünler</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Home" asp-action="Contact">İletişim</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link animate__animated animate__fadeIn" asp-controller="Cart" asp-action="Index">
+                                <i class="fas fa-shopping-cart"></i> Sepet
+                                <span id="cart-count" class="badge bg-danger">0</span>
+                            </a>
+                        </li>
+                        @if (User.Identity?.IsAuthenticated == true)
+                        {
+                            @if (User.IsInRole("Admin"))
+                            {
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle animate__animated animate__fadeIn" href="#" id="adminDropdown" role="button" data-bs-toggle="dropdown">
+                                        <i class="fas fa-cog"></i> Yönetim Paneli
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-end animate__animated animate__fadeIn">
+                                        <li><a class="dropdown-item" asp-controller="Admin" asp-action="Products"><i class="fas fa-box me-2"></i>Ürün Yönetimi</a></li>
+                                        <li><a class="dropdown-item" asp-controller="Admin" asp-action="Categories"><i class="fas fa-tags me-2"></i>Kategori Yönetimi</a></li>
+                                        <li><a class="dropdown-item" asp-controller="Admin" asp-action="Orders"><i class="fas fa-shopping-bag me-2"></i>Sipariş Yönetimi</a></li>
+                                        <li><a class="dropdown-item" asp-controller="Admin" asp-action="Users"><i class="fas fa-users me-2"></i>Kullanıcı Yönetimi</a></li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li><a class="dropdown-item" asp-controller="Admin" asp-action="Settings"><i class="fas fa-wrench me-2"></i>Site Ayarları</a></li>
+                                    </ul>
+                                </li>
+                            }
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle animate__animated animate__fadeIn" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown">
+                                    <i class="fas fa-user"></i> @User.Identity.Name
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end animate__animated animate__fadeIn">
+                                    <li><a class="dropdown-item" asp-controller="Account" asp-action="Profile">Profilim</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Order" asp-action="Index">Siparişlerim</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" asp-controller="Account" asp-action="Logout">Çıkış Yap</a></li>
+                                </ul>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link animate__animated animate__fadeIn" asp-controller="Account" asp-action="Login">Giriş Yap</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link animate__animated animate__fadeIn" asp-controller="Account" asp-action="Register">Kayıt Ol</a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main role="main">
+        @RenderBody()
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="col-lg-3 col-md-4 mb-4">
+                    <h5>Hakkımızda</h5>
+                    <p>MIB3D, anime ve oyun ürünleri sunar.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 mb-4">
+                    <h5>Hızlı Linkler</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Gizlilik Politikası</a></li>
+                        <li><a href="#">İade Koşulları</a></li>
+                        <li><a href="#">Kargo ve Teslimat</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-4 mb-4">
+                    <h5>İletişim</h5>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-phone me-2"></i> +90 555 123 4567</li>
+                        <li><i class="fas fa-envelope me-2"></i> info@mib3d.com</li>
+                        <li><i class="fas fa-map-marker-alt me-2"></i> İstanbul, Türkiye</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-top pt-3 text-center">
+                <p class="mb-0">&copy; 2024 MIB3D. Tüm hakları saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+
+    @* WhatsApp Floating Button *@
+    <a href="https://wa.me/+901234567890" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i> @* Font Awesome ikonu *@
+        @* veya <i class="bi bi-whatsapp"></i> Bootstrap Icons ikonu *@
+    </a>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <script>
+        function updateCartCount() {
+            $.get('/Cart/GetCartCount', function(response) {
+                $('#cart-count').text(response);
+            });
+        }
+
+        $(document).ready(function() {
+            updateCartCount();
+        });
+    </script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

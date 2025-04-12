@@ -1,0 +1,78 @@
+@model IEnumerable<dagstore.Models.Order>
+
+@{
+    ViewData["Title"] = "Siparişlerim";
+}
+
+<div class="container mt-4">
+    <h1 class="mb-4">Siparişlerim</h1>
+    
+    @if (!Model.Any())
+    {
+        <div class="alert alert-info">
+            <h5><i class="bi bi-info-circle"></i> Bilgi</h5>
+            <p>Henüz hiç siparişiniz bulunmamaktadır.</p>
+            <a asp-controller="Product" asp-action="Index" class="btn btn-primary">
+                <i class="bi bi-shop"></i> Alışverişe Başla
+            </a>
+        </div>
+    }
+    else
+    {
+        <div class="card shadow">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Sipariş No</th>
+                                <th>Tarih</th>
+                                <th>Tutar</th>
+                                <th>Durum</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var order in Model)
+                            {
+                                <tr>
+                                    <td>#@order.Id</td>
+                                    <td>@order.OrderDate.ToString("dd.MM.yyyy HH:mm")</td>
+                                    <td>@order.TotalAmount.ToString("C2")</td>
+                                    <td>
+                                        @switch (order.Status)
+                                        {
+                                            case "Pending":
+                                                <span class="badge bg-warning text-dark">Beklemede</span>
+                                                break;
+                                            case "Processing":
+                                                <span class="badge bg-info">İşlemde</span>
+                                                break;
+                                            case "Shipped":
+                                                <span class="badge bg-primary">Kargolandı</span>
+                                                break;
+                                            case "Delivered":
+                                                <span class="badge bg-success">Teslim Edildi</span>
+                                                break;
+                                            case "Cancelled":
+                                                <span class="badge bg-danger">İptal Edildi</span>
+                                                break;
+                                            default:
+                                                <span class="badge bg-secondary">@order.Status</span>
+                                                break;
+                                        }
+                                    </td>
+                                    <td>
+                                        <a asp-action="Details" asp-route-id="@order.Id" class="btn btn-sm btn-outline-primary">
+                                            <i class="bi bi-eye"></i> Detaylar
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    }
+</div> 

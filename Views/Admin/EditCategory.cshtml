@@ -1,0 +1,67 @@
+@model dagstore.Models.CategoryViewModel
+
+@{
+    ViewData["Title"] = "Kategori Düzenle";
+}
+
+<div class="container py-5 pt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow">
+                <div class="card-header bg-warning text-dark">
+                    <h4 class="mb-0">Kategori Düzenle: @Model.Name</h4>
+                </div>
+                <div class="card-body">
+                    <form asp-action="EditCategory" method="post" enctype="multipart/form-data">
+                        <input type="hidden" asp-for="Id" />
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        
+                        <div class="mb-3">
+                            <label asp-for="Name" class="form-label"></label>
+                            <input asp-for="Name" class="form-control" />
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Description" class="form-label"></label>
+                            <textarea asp-for="Description" class="form-control" rows="3"></textarea>
+                            <span asp-validation-for="Description" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Mevcut Kategori Görseli</label>
+                            <div>
+                                @if (!string.IsNullOrEmpty(Model.ImageUrl)) // Modelde ImageUrl olmalı!
+                                {
+                                    <img src="@Model.ImageUrl" alt="Mevcut Görsel" style="max-width: 150px; max-height: 150px; object-fit: cover; border-radius: 5px; margin-bottom: 10px; display: block;" />
+                                }
+                                else
+                                {
+                                    <span class="text-muted">Mevcut görsel yok.</span>
+                                }
+                            </div>
+                            <label asp-for="Image" class="form-label"></label>
+                            <input asp-for="Image" class="form-control" type="file" accept="image/*" />
+                            <span asp-validation-for="Image" class="text-danger"></span>
+                            <small class="form-text text-muted">Mevcut görseli değiştirmek istemiyorsanız bu alanı boş bırakın.</small>
+                        </div>
+
+                        <div class="mb-3 form-check">
+                            <input asp-for="IsActive" class="form-check-input" />
+                            <label asp-for="IsActive" class="form-check-label"></label>
+                        </div>
+
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                            <a asp-action="Categories" class="btn btn-secondary me-md-2">İptal</a>
+                            <button type="submit" class="btn btn-warning">Kaydet</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+} 

@@ -1,0 +1,14 @@
+/* Ana sayfa arka plan resmi ayarları */
+.homepage-banner {
+    background-image: url('/images/popular-culture-background.jpg'); /* Yeni popüler kültür resmi */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh; /* Tüm sayfayı kaplasın */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    padding: 0 20px;
+} 

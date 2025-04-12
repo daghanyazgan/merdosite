@@ -1,0 +1,119 @@
+@model List<dagstore.Models.CartItemViewModel>
+
+@{
+    ViewData["Title"] = "Ödeme";
+    decimal totalAmount = Model.Sum(item => item.Total);
+}
+
+<div class="container mt-4">
+    <h2>Ödeme</h2>
+
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5 class="mb-0">Sipariş Özeti</h5>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Ürün</th>
+                                    <th>Fiyat</th>
+                                    <th>Adet</th>
+                                    <th>Toplam</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <img src="@item.ImageUrl" alt="@item.ProductName" class="img-thumbnail me-3" style="width: 50px; height: 50px; object-fit: cover;">
+                                                <span>@item.ProductName</span>
+                                            </div>
+                                        </td>
+                                        <td>@item.Price.ToString("C2")</td>
+                                        <td>@item.Quantity</td>
+                                        <td>@item.Total.ToString("C2")</td>
+                                    </tr>
+                                }
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="3" class="text-end"><strong>Toplam:</strong></td>
+                                    <td><strong>@totalAmount.ToString("C2")</strong></td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0">Ödeme Bilgileri</h5>
+                </div>
+                <div class="card-body">
+                    <form asp-controller="Order" asp-action="PlaceOrder" method="post">
+                        <div class="mb-3">
+                            <label class="form-label">Kart Numarası</label>
+                            <input type="text" class="form-control" name="cardNumber" required maxlength="16" placeholder="1234 5678 9012 3456">
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col">
+                                <label class="form-label">Son Kullanma Tarihi</label>
+                                <input type="text" class="form-control" name="expiryDate" required maxlength="5" placeholder="MM/YY">
+                            </div>
+                            <div class="col">
+                                <label class="form-label">CVV</label>
+                                <input type="text" class="form-control" name="cvv" required maxlength="3" placeholder="123">
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Kart Sahibi</label>
+                            <input type="text" class="form-control" name="cardHolder" required placeholder="Ad Soyad">
+                        </div>
+
+                        <button type="submit" class="btn btn-success w-100">
+                            <i class="bi bi-credit-card"></i> Ödemeyi Tamamla
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('#cardNumber').on('input', function () {
+                var val = $(this).val().replace(/\s+/g, '').replace(/[^0-9]/gi, '');
+                var formatted = '';
+                for (var i = 0; i < val.length; i++) {
+                    if (i > 0 && i % 4 === 0) {
+                        formatted += ' ';
+                    }
+                    formatted += val.charAt(i);
+                }
+                $(this).val(formatted);
+            });
+
+            $('#expiryDate').on('input', function () {
+                var val = $(this).val().replace(/\s+/g, '').replace(/[^0-9]/gi, '');
+                if (val.length > 2) {
+                    $(this).val(val.substring(0, 2) + '/' + val.substring(2, 4));
+                } else {
+                    $(this).val(val);
+                }
+            });
+        });
+    </script>
+} 

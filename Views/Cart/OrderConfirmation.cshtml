@@ -1,0 +1,37 @@
+@model dagstore.Models.Order
+
+@{
+    ViewData["Title"] = "Sipariş Onayı";
+}
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body text-center">
+                    <i class="fas fa-check-circle text-success fa-5x mb-3"></i>
+                    <h2 class="mb-4">Siparişiniz Alındı!</h2>
+                    <p class="lead mb-4">Sipariş numaranız: <strong>@Model.OrderNumber</strong></p>
+                    <p class="mb-4">Siparişinizin durumunu "Siparişlerim" sayfasından takip edebilirsiniz.</p>
+                    <div class="d-flex justify-content-center gap-3">
+                        <a asp-controller="Account" asp-action="Orders" class="btn btn-primary">
+                            <i class="fas fa-box me-2"></i>Siparişlerim
+                        </a>
+                        <a asp-controller="Home" asp-action="Index" class="btn btn-outline-primary">
+                            <i class="fas fa-home me-2"></i>Ana Sayfa
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mt-4">
+                <div class="card-header">
+                    <h5 class="mb-0">Sipariş Özeti</h5>
+                </div>
+                <div class="card-body">
+                    <partial name="_OrderDetails" model="@Model" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 

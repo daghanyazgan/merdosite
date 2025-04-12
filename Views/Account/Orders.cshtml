@@ -1,0 +1,129 @@
+@model IEnumerable<dagstore.Models.Order>
+
+@{
+    ViewData["Title"] = "Siparişlerim";
+}
+
+<div class="container py-5">
+    <div class="row">
+        <div class="col-12">
+            <h2 class="mb-4">Siparişlerim</h2>
+            
+            @if (!Model.Any())
+            {
+                <div class="alert alert-info">
+                    <i class="fas fa-info-circle me-2"></i>
+                    Henüz hiç siparişiniz bulunmamaktadır.
+                    <a href="@Url.Action("Index", "Home")" class="alert-link ms-2">Alışverişe başla</a>
+                </div>
+            }
+            else
+            {
+                <div class="row">
+                    @foreach (var order in Model.OrderByDescending(o => o.OrderDate))
+                    {
+                        <div class="col-12 mb-4">
+                            <div class="card">
+                                <div class="card-header d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <h5 class="mb-0">Sipariş #@order.Id</h5>
+                                        <small class="text-muted">@order.OrderDate.ToString("dd/MM/yyyy HH:mm")</small>
+                                    </div>
+                                    @{
+                                        var statusClass = order.Status switch
+                                        {
+                                            "Pending" => "warning",
+                                            "Processing" => "info",
+                                            "Shipped" => "primary",
+                                            "Delivered" => "success",
+                                            "Cancelled" => "danger",
+                                            _ => "secondary"
+                                        };
+
+                                        var statusText = order.Status switch
+                                        {
+                                            "Pending" => "Beklemede",
+                                            "Processing" => "İşleniyor",
+                                            "Shipped" => "Kargoda",
+                                            "Delivered" => "Teslim Edildi",
+                                            "Cancelled" => "İptal Edildi",
+                                            _ => order.Status
+                                        };
+                                    }
+                                    <span class="badge bg-@statusClass">@statusText</span>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            <div class="table-responsive">
+                                                <table class="table table-sm">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Ürün</th>
+                                                            <th>Adet</th>
+                                                            <th class="text-end">Fiyat</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        @foreach (var item in order.OrderItems)
+                                                        {
+                                                            <tr>
+                                                                <td>
+                                                                    <div class="d-flex align-items-center">
+                                                                        @if (!string.IsNullOrEmpty(item.Product.ImageUrl))
+                                                                        {
+                                                                            <img src="@item.Product.ImageUrl" alt="@item.Product.Name" 
+                                                                                class="me-2" style="width: 40px; height: 40px; object-fit: cover;">
+                                                                        }
+                                                                        @item.Product.Name
+                                                                    </div>
+                                                                </td>
+                                                                <td>@item.Quantity</td>
+                                                                <td class="text-end">@((item.UnitPrice * item.Quantity).ToString("C2"))</td>
+                                                            </tr>
+                                                        }
+                                                    </tbody>
+                                                    <tfoot>
+                                                        <tr>
+                                                            <td colspan="2" class="text-end"><strong>Toplam:</strong></td>
+                                                            <td class="text-end"><strong>@order.TotalAmount.ToString("C2")</strong></td>
+                                                        </tr>
+                                                    </tfoot>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 d-flex align-items-center justify-content-end">
+                                            <a asp-action="OrderDetails" asp-route-id="@order.Id" 
+                                               class="btn btn-outline-primary">
+                                                <i class="fas fa-eye me-2"></i>Detayları Görüntüle
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="orderDetailsModal" tabindex="-1" aria-labelledby="orderDetailsModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content" id="orderDetailsContent">
+            <!-- Content will be loaded here -->
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        function loadOrderDetails(orderId) {
+            $.get('/Account/OrderDetails/' + orderId, function(data) {
+                $('#orderDetailsContent').html(data);
+            });
+        }
+    </script>
+} 

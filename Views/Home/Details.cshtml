@@ -1,0 +1,65 @@
+@model dagstore.Models.Product
+
+@{
+    ViewData["Title"] = Model.Name;
+}
+
+<div class="container py-5 pt-5">
+    <div class="row">
+        <div class="col-md-6 mb-4 mb-md-0">
+            <img src="@Model.ImageUrl" class="img-fluid rounded shadow-sm mx-auto d-block" alt="@Model.Name" 
+                 style="max-height: 450px; width: auto; object-fit: contain;">
+        </div>
+        <div class="col-md-6">
+            <h1 class="mb-3">@Model.Name</h1>
+            <p class="text-muted mb-3">
+                <a asp-action="CategoryProducts" asp-route-id="@Model.CategoryId" class="text-decoration-none">@Model.Category?.Name</a>
+            </p>
+            <h3 class="text-primary mb-4">@Model.Price.ToString("C2")</h3>
+            <p class="mb-4">@Model.Description</p>
+            
+            <div class="mb-4">
+                <span class="badge @(Model.Stock > 0 ? "bg-success" : "bg-danger")">
+                    @(Model.Stock > 0 ? "Stokta" : "Stokta Yok")
+                </span>
+                <span class="ms-2">@Model.Stock adet</span>
+            </div>
+
+            @if (Model.Stock > 0)
+            {
+                <form asp-controller="Cart" asp-action="AddToCart" method="post">
+                    <input type="hidden" name="productId" value="@Model.Id" />
+                    <div class="input-group mb-3" style="max-width: 200px;">
+                        <button type="button" class="btn btn-outline-secondary btn-sm" onclick="decreaseQuantity()">-</button>
+                        <input type="number" class="form-control form-control-sm text-center" name="quantity" id="quantity" value="1" min="1" max="@Model.Stock">
+                        <button type="button" class="btn btn-outline-secondary btn-sm" onclick="increaseQuantity()">+</button>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="bi bi-cart-plus me-1"></i> Sepete Ekle
+                    </button>
+                </form>
+            }
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        function increaseQuantity() {
+            var input = document.getElementById('quantity');
+            var max = parseInt(input.getAttribute('max'));
+            var current = parseInt(input.value);
+            if (current < max) {
+                input.value = current + 1;
+            }
+        }
+
+        function decreaseQuantity() {
+            var input = document.getElementById('quantity');
+            var current = parseInt(input.value);
+            if (current > 1) {
+                input.value = current - 1;
+            }
+        }
+    </script>
+} 

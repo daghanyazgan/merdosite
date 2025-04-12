@@ -1,0 +1,121 @@
+@model IEnumerable<dagstore.Models.Order>
+
+@{
+    ViewData["Title"] = "Siparişler";
+}
+
+<div class="container py-4 pt-5">
+    <h2>Siparişler</h2>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Sipariş No</th>
+                <th>Müşteri</th>
+                <th>Tarih</th>
+                <th>Durum</th>
+                <th>Toplam</th>
+                <th>İşlemler</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var order in Model)
+            {
+                <tr>
+                    <td>@order.Id</td>
+                    <td>@(order.User?.UserName ?? "Bilinmiyor")</td>
+                    <td>@order.CreatedAt.ToString("dd.MM.yyyy HH:mm")</td>
+                    <td>
+                        <span class="badge @(order.Status == "Tamamlandı" ? "bg-success" : 
+                                            order.Status == "İptal Edildi" ? "bg-danger" : 
+                                            "bg-warning")">
+                            @order.Status
+                        </span>
+                    </td>
+                    <td>@order.TotalAmount.ToString("C2")</td>
+                    <td>
+                        <a asp-action="Details" asp-route-id="@order.Id" class="btn btn-sm btn-info">Detaylar</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<!-- Order Details Modal -->
+<div class="modal fade" id="orderDetailsModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Sipariş Detayları</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body" id="orderDetailsContent">
+                <!-- Content will be loaded dynamically -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Update Status Modal -->
+<div class="modal fade" id="updateStatusModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Sipariş Durumu Güncelle</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <form id="updateStatusForm">
+                <div class="modal-body">
+                    <input type="hidden" id="orderId" name="orderId" />
+                    <div class="mb-3">
+                        <label class="form-label">Yeni Durum</label>
+                        <select class="form-select" id="orderStatus" name="status" required>
+                            <option value="Pending">Beklemede</option>
+                            <option value="Processing">İşleniyor</option>
+                            <option value="Shipped">Kargoda</option>
+                            <option value="Delivered">Teslim Edildi</option>
+                            <option value="Cancelled">İptal Edildi</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">İptal</button>
+                    <button type="submit" class="btn btn-primary">Güncelle</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        function viewOrderDetails(orderId) {
+            $.get('/Admin/OrderDetails/' + orderId, function(response) {
+                $('#orderDetailsContent').html(response);
+                new bootstrap.Modal(document.getElementById('orderDetailsModal')).show();
+            });
+        }
+
+        function updateOrderStatus(orderId) {
+            document.getElementById('orderId').value = orderId;
+            new bootstrap.Modal(document.getElementById('updateStatusModal')).show();
+        }
+
+        $('#updateStatusForm').on('submit', function(e) {
+            e.preventDefault();
+            var formData = {
+                orderId: $('#orderId').value,
+                status: $('#orderStatus').val()
+            };
+
+            $.post('/Admin/UpdateOrderStatus', formData, function(response) {
+                if (response.success) {
+                    location.reload();
+                } else {
+                    alert('Sipariş durumu güncellenirken bir hata oluştu.');
+                }
+            });
+        });
+    </script>
+} 

@@ -1,0 +1,251 @@
+﻿@model dagstore.ViewModels.HomeViewModel
+
+@{
+    ViewData["Title"] = "Ana Sayfa";
+}
+
+<!-- Hero Section -->
+<div class="hero-section mb-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <h1 class="display-4 fw-bold mb-4">En Kaliteli Anime ve Oyun Ürünleri</h1>
+                <p class="lead mb-4">MIB3D'de en sevdiğiniz anime ve oyun karakterlerinin ürünlerini bulabilirsiniz.</p>
+                <a asp-controller="Product" asp-action="Index" class="btn btn-primary btn-lg">Alışverişe Başla</a>
+            </div>
+            <div class="col-md-6">
+                <img src="https://images.unsplash.com/photo-1633613286848-e6f43bbafb8d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" 
+                     class="img-fluid rounded shadow-lg" alt="Hero Image">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Featured Products -->
+<section class="py-5 bg-light">
+    <div class="container">
+         <div class="d-flex justify-content-between align-items-center mb-4">
+             <h2 class="mb-0 animate-on-scroll">Öne Çıkan Ürünler</h2>
+              @* <a asp-controller="Product" asp-action="Index" class="btn btn-sm btn-outline-secondary">Tümünü Gör <i class="fas fa-arrow-right ms-1"></i></a> *@
+         </div>
+
+         @if (Model.FeaturedProducts != null && Model.FeaturedProducts.Any())
+        {
+            <div class="owl-carousel owl-theme featured-product-carousel">
+                @foreach (var product in Model.FeaturedProducts)
+                {
+                    <div class="item">
+                        <div class="product-card animate-on-scroll h-100">
+                            <a asp-action="Details" asp-route-id="@product.Id" class="text-decoration-none d-block card-img-container">
+                                <img src="@product.ImageUrl" class="card-img-top" alt="@product.Name" style="height: 250px; object-fit: cover;">
+                            </a>
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">
+                                    <a asp-action="Details" asp-route-id="@product.Id" class="text-decoration-none text-dark">
+                                        @product.Name
+                                    </a>
+                                </h5>
+                                <p class="card-text flex-grow-1 text-truncate">@product.Description</p> 
+                                <div class="d-flex justify-content-between align-items-center mt-auto">
+                                    <span class="h5 text-primary mb-0">@product.Price.ToString("C")</span>
+                                    <form asp-controller="Cart" asp-action="AddToCart" method="post" class="d-inline">
+                                        <input type="hidden" name="productId" value="@product.Id" />
+                                        <input type="hidden" name="quantity" value="1" />
+                                        <button type="submit" class="btn btn-primary btn-sm">
+                                            <i class="bi bi-cart-plus"></i>
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+         else
+        {
+            <p class="text-center">Öne çıkan ürün bulunamadı.</p>
+        }
+    </div>
+</section>
+
+<!-- Featured Categories -->
+<section class="py-5">
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+             <h2 class="mb-0 animate-on-scroll">Kategoriler</h2>
+             <a asp-controller="Home" asp-action="AllCategories" class="btn btn-sm btn-outline-secondary">Tümünü Gör <i class="fas fa-arrow-right ms-1"></i></a>
+        </div>
+       
+        @if (Model.Categories != null)
+        {
+             var categories = Model.Categories;
+             if (categories != null && categories.Any())
+             {
+                 <div class="owl-carousel owl-theme category-carousel">
+                     @foreach (var category in categories)
+                    {
+                        <div class="item">
+                            <div class="category-card animate-on-scroll h-100">
+                                <a asp-action="CategoryProducts" asp-route-id="@category.Id" class="text-decoration-none">
+                                    <img src="@category.ImageUrl" class="card-img-top" alt="@category.Name" style="height: 200px; object-fit: cover;">
+                                </a>
+                                <div class="card-body text-center d-flex flex-column">
+                                    <h5 class="card-title">@category.Name</h5>
+                                    <p class="card-text flex-grow-1">@category.Description</p>
+                                    <a asp-action="CategoryProducts" asp-route-id="@category.Id" class="btn btn-outline-primary mt-auto">Keşfet</a>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                 </div>
+             }
+            else
+            {
+                 <p class="text-center">Gösterilecek kategori bulunamadı.</p>
+            }
+        }
+        else
+        {
+            <p class="text-center">Kategoriler yüklenirken bir sorun oluştu.</p>
+        }
+    </div>
+</section>
+
+<!-- All Products Section (Yeni Bölüm) -->
+<section class="py-5">
+    <div class="container">
+         <div class="d-flex justify-content-between align-items-center mb-4">
+             <h2 class="mb-0 animate-on-scroll">Tüm Ürünler</h2>
+              <a asp-controller="Product" asp-action="Index" class="btn btn-sm btn-outline-secondary">Tümünü Gör <i class="fas fa-arrow-right ms-1"></i></a>
+         </div>
+
+         @if (Model.AllProducts != null && Model.AllProducts.Any())
+        {
+            <div class="owl-carousel owl-theme all-product-carousel"> @* Yeni sınıf adı *@
+                @foreach (var product in Model.AllProducts)
+                {
+                    <div class="item">
+                        <div class="product-card animate-on-scroll h-100">
+                            <a asp-action="Details" asp-route-id="@product.Id" class="text-decoration-none d-block card-img-container">
+                                <img src="@product.ImageUrl" class="card-img-top" alt="@product.Name" style="height: 250px; object-fit: cover;">
+                            </a>
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">
+                                    <a asp-action="Details" asp-route-id="@product.Id" class="text-decoration-none text-dark">
+                                        @product.Name
+                                    </a>
+                                </h5>
+                                <p class="card-text flex-grow-1 text-truncate">@product.Description</p> 
+                                <div class="d-flex justify-content-between align-items-center mt-auto">
+                                    <span class="h5 text-primary mb-0">@product.Price.ToString("C")</span>
+                                    <form asp-controller="Cart" asp-action="AddToCart" method="post" class="d-inline">
+                                        <input type="hidden" name="productId" value="@product.Id" />
+                                        <input type="hidden" name="quantity" value="1" />
+                                        <button type="submit" class="btn btn-primary btn-sm">
+                                            <i class="bi bi-cart-plus"></i>
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+         else
+        {
+            <p class="text-center">Gösterilecek ürün bulunamadı.</p>
+        }
+    </div>
+</section>
+
+<!-- Features Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-md-4 mb-4">
+                <div class="feature-item animate-on-scroll">
+                    <i class="fas fa-truck fa-3x mb-3 text-primary"></i>
+                    <h4>Ücretsiz Kargo</h4>
+                    <p>150 TL ve üzeri alışverişlerde ücretsiz kargo</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="feature-item animate-on-scroll">
+                    <i class="fas fa-undo fa-3x mb-3 text-primary"></i>
+                    <h4>Kolay İade</h4>
+                    <p>14 gün içinde ücretsiz iade imkanı</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="feature-item animate-on-scroll">
+                    <i class="fas fa-headset fa-3x mb-3 text-primary"></i>
+                    <h4>7/24 Destek</h4>
+                    <p>Her zaman yanınızdayız</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    @* @await Html.RenderPartialAsync("_ValidationScriptsPartial") *@ 
+    <script>
+        $(document).ready(function(){
+            $(".category-carousel").owlCarousel({ 
+                 loop: false,
+                margin: 15,
+                nav: true,
+                dots: true,
+                 responsive:{
+                    0:{ items: 1 },
+                    576:{ items: 2 },
+                    992:{ items: 3 }
+                }
+            }); 
+
+            $(".featured-product-carousel").owlCarousel({ 
+                loop: false,
+                margin: 15,
+                nav: true,
+                dots: true,
+                 responsive:{
+                    0:{ items: 1 },
+                    576:{ items: 2 },
+                    768:{ items: 3 },
+                    992:{ items: 4 }
+                }
+             }); 
+            $(".all-product-carousel").owlCarousel({ 
+                 loop: false,
+                margin: 15,
+                nav: true,
+                dots: true,
+                 responsive:{
+                    0:{ items: 1 },
+                    576:{ items: 2 },
+                    768:{ items: 3 },
+                    992:{ items: 4 }
+                }
+             });
+        });
+
+        // Scroll animation scripti
+        document.addEventListener('DOMContentLoaded', function() { 
+           const elements = document.querySelectorAll('.animate-on-scroll');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            elements.forEach(element => {
+                observer.observe(element);
+            });
+        });
+    </script>
+}

@@ -1,0 +1,349 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\fener\\dagstore\\dagstore\\obj\\Debug\\net9.0\\scopedcss\\projectbundle\\dagstore.bundle.scp.css",
+      "PackagePath": "staticwebassets\\dagstore.iboh68z5mx.bundle.scp.css"
+    },
+    {
+      "Id": "C:\\Users\\fener\\dagstore\\dagstore\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "C:\\Users\\fener\\dagstore\\dagstore\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\fener\\dagstore\\dagstore\\wwwroot\\images\\no-image.jpg",
+      "PackagePath": "staticwebassets\\images\\no-image.jpg"
+    },
+    {
+      "Id": "C:\\Users\\fener\\dagstore\\dagstore\\wwwroot\\js\\site.js",
+      "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "C:\\Users\\fener\\dagstore\\dagstore\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "PackagePath": "staticwebassets\\lib\\bootstrap"
+    },
+    {
+      "Id": "C:\\Users\\fener\\dagstore\\dagstore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
+    },
+    {
+      "Id": "C:\\Users\\fener\\dagstore\\dagstore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
+    },
+    {
+      "Id": "C:\\Users\\fener\\dagstore\\dagstore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
+    },
+    {
+      "Id": "C:\\Users\\fener\\dagstore\\dagstore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\fener\\dagstore\\dagstore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\fener\\dagstore\\dagstore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\fener\\dagstore\\dagstore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\fener\\dagstore\\dagstore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\fener\\dagstore\\dagstore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
+    },
+    {
+      "Id": "C:\\Users\\fener\\dagstore\\dagstore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "C:\\Users\\fener\\dagstore\\dagstore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "C:\\Users\\fener\\dagstore\\dagstore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\fener\\dagstore\\dagstore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\fener\\dagstore\\dagstore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\fener\\dagstore\\dagstore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\fener\\dagstore\\dagstore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\fener\\dagstore\\dagstore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
+    },
+    {
+      "Id": "C:\\Users\\fener\\dagstore\\dagstore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "C:\\Users\\fener\\dagstore\\dagstore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "C:\\Users\\fener\\dagstore\\dagstore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\fener\\dagstore\\dagstore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\fener\\dagstore\\dagstore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\fener\\dagstore\\dagstore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\fener\\dagstore\\dagstore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\fener\\dagstore\\dagstore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
+    },
+    {
+      "Id": "C:\\Users\\fener\\dagstore\\dagstore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
+    },
+    {
+      "Id": "C:\\Users\\fener\\dagstore\\dagstore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\fener\\dagstore\\dagstore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\fener\\dagstore\\dagstore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\fener\\dagstore\\dagstore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\fener\\dagstore\\dagstore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\fener\\dagstore\\dagstore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\fener\\dagstore\\dagstore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
+    },
+    {
+      "Id": "C:\\Users\\fener\\dagstore\\dagstore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "C:\\Users\\fener\\dagstore\\dagstore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "C:\\Users\\fener\\dagstore\\dagstore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\fener\\dagstore\\dagstore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
+    },
+    {
+      "Id": "C:\\Users\\fener\\dagstore\\dagstore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
+    },
+    {
+      "Id": "C:\\Users\\fener\\dagstore\\dagstore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
+    },
+    {
+      "Id": "C:\\Users\\fener\\dagstore\\dagstore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\fener\\dagstore\\dagstore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
+    },
+    {
+      "Id": "C:\\Users\\fener\\dagstore\\dagstore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
+    },
+    {
+      "Id": "C:\\Users\\fener\\dagstore\\dagstore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "C:\\Users\\fener\\dagstore\\dagstore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\fener\\dagstore\\dagstore\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Id": "C:\\Users\\fener\\dagstore\\dagstore\\wwwroot\\lib\\jquery-validation-unobtrusive\\dist\\jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\dist\\jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "C:\\Users\\fener\\dagstore\\dagstore\\wwwroot\\lib\\jquery-validation-unobtrusive\\dist\\jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\dist\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "C:\\Users\\fener\\dagstore\\dagstore\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
+    },
+    {
+      "Id": "C:\\Users\\fener\\dagstore\\dagstore\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
+    },
+    {
+      "Id": "C:\\Users\\fener\\dagstore\\dagstore\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
+    },
+    {
+      "Id": "C:\\Users\\fener\\dagstore\\dagstore\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
+    },
+    {
+      "Id": "C:\\Users\\fener\\dagstore\\dagstore\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
+    },
+    {
+      "Id": "C:\\Users\\fener\\dagstore\\dagstore\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Id": "C:\\Users\\fener\\dagstore\\dagstore\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
+    },
+    {
+      "Id": "C:\\Users\\fener\\dagstore\\dagstore\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
+    },
+    {
+      "Id": "C:\\Users\\fener\\dagstore\\dagstore\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "C:\\Users\\fener\\dagstore\\dagstore\\wwwroot\\lib\\jquery\\dist\\jquery.slim.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.slim.js"
+    },
+    {
+      "Id": "C:\\Users\\fener\\dagstore\\dagstore\\wwwroot\\lib\\jquery\\dist\\jquery.slim.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.slim.min.js"
+    },
+    {
+      "Id": "C:\\Users\\fener\\dagstore\\dagstore\\wwwroot\\lib\\jquery\\dist\\jquery.slim.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.slim.min.map"
+    },
+    {
+      "Id": "C:\\Users\\fener\\dagstore\\dagstore\\wwwroot\\uploads\\categories\\5baff4c5-1f84-494a-b844-87ddf1d3df6a_resim_2025-04-09_020213050.png",
+      "PackagePath": "staticwebassets\\uploads\\categories\\5baff4c5-1f84-494a-b844-87ddf1d3df6a_resim_2025-04-09_020213050.png"
+    },
+    {
+      "Id": "C:\\Users\\fener\\dagstore\\dagstore\\wwwroot\\uploads\\categories\\bde61292-cd3c-4b59-a873-ee2c424e30de_WhatsApp Image 2024-12-24 at 16.42.46.jpeg",
+      "PackagePath": "staticwebassets\\uploads\\categories\\bde61292-cd3c-4b59-a873-ee2c424e30de_WhatsApp Image 2024-12-24 at 16.42.46.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\fener\\dagstore\\dagstore\\wwwroot\\uploads\\categories\\bea379dc-4f97-4cd2-ad27-8880e130fef3_Screenshot_20230122-015010_Gallery.jpg",
+      "PackagePath": "staticwebassets\\uploads\\categories\\bea379dc-4f97-4cd2-ad27-8880e130fef3_Screenshot_20230122-015010_Gallery.jpg"
+    },
+    {
+      "Id": "C:\\Users\\fener\\dagstore\\dagstore\\wwwroot\\uploads\\categories\\d032119e-dce5-494f-9de9-b2ec7d12be25_WhatsApp Image 2025-02-14 at 00.22.26.jpeg",
+      "PackagePath": "staticwebassets\\uploads\\categories\\d032119e-dce5-494f-9de9-b2ec7d12be25_WhatsApp Image 2025-02-14 at 00.22.26.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\fener\\dagstore\\dagstore\\wwwroot\\uploads\\categories\\f54a36b7-2291-4c35-a67a-d4827451bebe_WhatsApp Image 2024-12-24 at 16.42.46.jpeg",
+      "PackagePath": "staticwebassets\\uploads\\categories\\f54a36b7-2291-4c35-a67a-d4827451bebe_WhatsApp Image 2024-12-24 at 16.42.46.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\fener\\dagstore\\dagstore\\wwwroot\\uploads\\products\\03273e88-1afa-4d53-a319-684f30adde62_1.png",
+      "PackagePath": "staticwebassets\\uploads\\products\\03273e88-1afa-4d53-a319-684f30adde62_1.png"
+    },
+    {
+      "Id": "C:\\Users\\fener\\dagstore\\dagstore\\wwwroot\\uploads\\products\\22a53171-cfa6-40ff-9594-dcdc630dd1d4_image.jpg",
+      "PackagePath": "staticwebassets\\uploads\\products\\22a53171-cfa6-40ff-9594-dcdc630dd1d4_image.jpg"
+    },
+    {
+      "Id": "C:\\Users\\fener\\dagstore\\dagstore\\wwwroot\\uploads\\products\\2ee20776-02b5-4ef0-ad4e-f83656f9a9a1_WhatsApp Image 2024-12-24 at 16.42.46.jpeg",
+      "PackagePath": "staticwebassets\\uploads\\products\\2ee20776-02b5-4ef0-ad4e-f83656f9a9a1_WhatsApp Image 2024-12-24 at 16.42.46.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\fener\\dagstore\\dagstore\\wwwroot\\uploads\\products\\30c73c02-fa96-4271-80b4-7c419ffb17b4_WhatsApp Image 2023-06-10 at 19.28.20.jpeg",
+      "PackagePath": "staticwebassets\\uploads\\products\\30c73c02-fa96-4271-80b4-7c419ffb17b4_WhatsApp Image 2023-06-10 at 19.28.20.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\fener\\dagstore\\dagstore\\wwwroot\\uploads\\products\\62f20246-5249-4461-b812-0597acbe6f11_daghanvesika.jpg",
+      "PackagePath": "staticwebassets\\uploads\\products\\62f20246-5249-4461-b812-0597acbe6f11_daghanvesika.jpg"
+    },
+    {
+      "Id": "C:\\Users\\fener\\dagstore\\dagstore\\wwwroot\\uploads\\products\\74dc6f7d-25c4-4cdd-a3e5-5344d291878a_WhatsApp Image 2024-12-24 at 16.42.46.jpeg",
+      "PackagePath": "staticwebassets\\uploads\\products\\74dc6f7d-25c4-4cdd-a3e5-5344d291878a_WhatsApp Image 2024-12-24 at 16.42.46.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\fener\\dagstore\\dagstore\\wwwroot\\uploads\\products\\99dccc9a-1a4c-45dc-86c7-c0022246867e_1347144.png",
+      "PackagePath": "staticwebassets\\uploads\\products\\99dccc9a-1a4c-45dc-86c7-c0022246867e_1347144.png"
+    },
+    {
+      "Id": "C:\\Users\\fener\\dagstore\\dagstore\\wwwroot\\uploads\\products\\a3ddf31f-e574-49dd-85bb-b83270c6a531_WhatsApp Image 2025-02-14 at 00.22.26.jpeg",
+      "PackagePath": "staticwebassets\\uploads\\products\\a3ddf31f-e574-49dd-85bb-b83270c6a531_WhatsApp Image 2025-02-14 at 00.22.26.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\fener\\dagstore\\dagstore\\wwwroot\\uploads\\products\\ba5f55a6-5c61-407d-80f3-a517c6b688e5_1347144.png",
+      "PackagePath": "staticwebassets\\uploads\\products\\ba5f55a6-5c61-407d-80f3-a517c6b688e5_1347144.png"
+    },
+    {
+      "Id": "C:\\Users\\fener\\dagstore\\dagstore\\wwwroot\\uploads\\products\\e27c9109-ec17-458b-a086-8f050d53a779_1.png",
+      "PackagePath": "staticwebassets\\uploads\\products\\e27c9109-ec17-458b-a086-8f050d53a779_1.png"
+    },
+    {
+      "Id": "C:\\Users\\fener\\dagstore\\dagstore\\wwwroot\\uploads\\products\\eae70deb-f2f8-4205-862d-5a79c43f1414_image.jpg",
+      "PackagePath": "staticwebassets\\uploads\\products\\eae70deb-f2f8-4205-862d-5a79c43f1414_image.jpg"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.build.dagstore.props",
+      "PackagePath": "build\\dagstore.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.buildMultiTargeting.dagstore.props",
+      "PackagePath": "buildMultiTargeting\\dagstore.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.buildTransitive.dagstore.props",
+      "PackagePath": "buildTransitive\\dagstore.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.dagstore.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.dagstore.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
